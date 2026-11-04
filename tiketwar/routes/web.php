@@ -13,39 +13,15 @@ $daftarKonser = [
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
-/*
-    GUIDED 7
-*/
-
-Route::get('/halo', function () {
-    return 'Halo, selamat datang di TiketWar!';
-});
-
-Route::get('/ping', function () {
-    return ['status' => 'ok', 'aplikasi' => 'TiketWar'];
-});
-
-/*
-    GUIDED 8
-*/
+Route::get('/konser', function () use ($daftarKonser) {
+    return view('konser', compact('daftarKonser'));
+})->name('konser.index');
 
 Route::get('/konser/{id}', function ($id) {
     return 'Detail konser nomor ' . $id;
 })->whereNumber('id')->name('konser.detail');
 
-Route::get('/tentang', function () {
-    return 'Halaman Tentang TiketWar';
-})->name('tentang');
-
-Route::get('/info', function () {
-    return redirect()->route('tentang');
-});
-
-Route::get('/konser', function () use ($daftarKonser) {
-    return view('konser', compact("daftarKonser"));
-})->name('konser.index');
-
-//$daftarKonser["nama"], $daftarKonser["kota"], $daftarKonser["harga"], $daftarKonser["sisa"]
+Route::view('/tentang', 'about')->name('tentang');
