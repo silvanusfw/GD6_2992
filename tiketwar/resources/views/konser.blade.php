@@ -14,6 +14,7 @@
                 <th>Harga</th>
                 <th>Sisa</th>
                 <th>Status</th>
+                <th>Aksi</th> 
             </tr>
         </thead>
         <tbody>
@@ -36,7 +37,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center">Belum ada konser.</td>
+                    <td colspan="7" class="text-center">Belum ada konser.</td>
                 </tr>
             @endforelse
         </tbody>
