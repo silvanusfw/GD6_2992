@@ -14,6 +14,7 @@
                 <th>Harga</th>
                 <th>Sisa</th>
                 <th>Status</th>
+                <th>Tanggal</th>
                 <th>Aksi</th> 
             </tr>
         </thead>
@@ -34,10 +35,11 @@
                             <span class="badge bg-danger">Sold Out</span>
                         @endif
                     </td>
+                    <td>{{ date('d-m-Y', strtotime($konser['tanggal'])) }}</td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center">Belum ada konser.</td>
+                    <td colspan="8" class="text-center">Belum ada konser.</td>
                 </tr>
             @endforelse
         </tbody>
