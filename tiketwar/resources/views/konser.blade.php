@@ -10,20 +10,23 @@
             <tr>
                 <th>No</th>
                 <th>Konser</th>
+                <th>Promotor</th>
                 <th>Kota</th>
+                <th>Tanggal</th>
                 <th>Harga</th>
                 <th>Sisa</th>
                 <th>Status</th>
-                <th>Tanggal</th>
                 <th>Aksi</th> 
             </tr>
         </thead>
         <tbody>
-            @forelse ($daftarKonser as $id => $konser)
+            @forelse ($daftarKonser as $konser)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td class="{{ $konser['sisa'] == 0 ? 'sold-out' : '' }}">{{ $konser['nama'] }}</td>
                     <td>{{ $konser['kota'] }}</td>
+                    <td>{{ $konser->promotor->nama}}</td>
+                    <td>{{ date('d-m-Y', strtotime($konser['tanggal'])) }}</td>
                     <td>Rp{{ number_format($konser['harga'], 0, ',', '.') }}</td>
                     <td>{{ $konser['sisa'] }}</td>
                     <td>
@@ -35,11 +38,13 @@
                             <span class="badge bg-danger">Sold Out</span>
                         @endif
                     </td>
-                    <td>{{ date('d-m-Y', strtotime($konser['tanggal'])) }}</td>
+                    <td>
+                        <a href="{{ route('konser.detail', ['id' => $konser->id]) }}" class="btn btn-sm btn-primary">Detail</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" class="text-center">Belum ada konser.</td>
+                    <td colspan="9" class="text-center">Belum ada konser.</td>
                 </tr>
             @endforelse
         </tbody>
