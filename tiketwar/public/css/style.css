@@ -6,6 +6,6 @@
 }
 
 .sold-out {
-    color: #dc3545;
+    color: #dc3545 !important;
     font-weight: 700;
 }
