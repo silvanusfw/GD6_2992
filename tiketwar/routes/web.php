@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\PromotorController;
-use App\Http\Controllers\KonserController; 
 use Illuminate\Support\Facades\Route;
 use App\Models\Konser;
 use App\Models\Promotor;
+use App\Http\Controllers\PromotorController;
+use App\Http\Controllers\KonserController;
 use App\Http\Controllers\PesananController;
+use App\Http\Controllers\LaporanController;
 
 /*
     GUIDED 9 (BLADE)
@@ -99,3 +100,4 @@ Route::patch('/pesanan/{pesanan}/bayar', [PesananController::class, 'bayar'])->w
 
 Route::patch('/pesanan/{pesanan}/batal', [PesananController::class, 'batal'])->whereNumber('pesanan')->name('pesanan.batal'); 
 
+Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index'); 
