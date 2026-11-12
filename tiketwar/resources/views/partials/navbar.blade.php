@@ -6,6 +6,8 @@
         <li class="nav-item"><a class="nav-link"href="{{ route('konser.index') }}">Konser</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('promotor.index') }}">Promotor</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('tentang') }}">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('konser.index') }}">Konser</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('pesanan.index') }}">Pesanan</a></li>
         </ul>
     </div>
 </nav>
