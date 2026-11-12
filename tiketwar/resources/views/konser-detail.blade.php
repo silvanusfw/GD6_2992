@@ -18,8 +18,8 @@
                 </div>
             @endif
 
-            @if ($konser['sisa'] > 0)
-                <button class="btn btn-primary">War Tiket Sekarang</button>
+            @if ($konser->sisa > 0)
+                <a href="{{ route('pesanan.create', $konser) }}"> <button class="btn btn-primary">War Tiket Sekarang</button> </a>
             @else
                 <button class="btn btn-secondary" disabled>Sold Out</button>
             @endif

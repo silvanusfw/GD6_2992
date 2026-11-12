@@ -5,6 +5,7 @@ use App\Http\Controllers\KonserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Konser;
 use App\Models\Promotor;
+use App\Http\Controllers\PesananController;
 
 /*
     GUIDED 9 (BLADE)
@@ -86,3 +87,7 @@ Route::get('/promotor/{id}/edit', [PromotorController::class, 'edit'])->whereNum
 Route::put('/promotor/{id}', [PromotorController::class, 'update'])->whereNumber('id')->name('promotor.update');
 
 Route::delete('/promotor/{id}', [PromotorController::class, 'destroy'])->whereNumber('id')->name('promotor.destroy');
+
+Route::get('konser/{konser}/pesan', [PesananController::class, 'create'])->whereNumber('konser')->name('pesanan.create');
+
+Route::post('/konser/{konser}/pesan', [PesananController::class, 'store'])->whereNumber('konser')->name('pesanan.store');
