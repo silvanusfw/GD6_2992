@@ -60,5 +60,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(PesananSeeder::class);
+        $this->call(AdminSeeder::class); 
     }
 }
